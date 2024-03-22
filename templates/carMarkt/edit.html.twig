@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
+{% block body %}
+<div>
+    <h1 style="text-align: center; padding-top: 40px margin-top: 10vh;"><strong>Add a new car</strong></h1>
+</div>
+<div class="container" style="margin-top: 10vh; margin-bottom: 20vh;">
+    {{ form_start(form) }}
+
+    {{ form_widget(form) }}
+      <div class="row1">
+          <div class="column1">
+            <p style="text-align:center"><strong>Main Image</strong></p>
+            <img src="{{ car.mainImage }}" alt="Snow" style="width:100%">
+          </div>
+          <div class="column1">
+            <p style="text-align:center"><strong>Image 2</strong></p>
+            <img src="{{ car.image2 }}" alt="Forest" style="width:100%">
+          </div>
+          <div class="column1">
+          <p style="text-align:center;"><strong>Image 3</strong></p>
+            <img src="{{ car.image3 }}" alt="Mountains" style="width:100%">
+          </div>
+      </div> 
+        <button type="submit" class="btn btn-success bluebtn" style="width:100%;">Submit</button> <br>
+        <a style="margin-top:1vh; width:100%;" href="/crud/adminform.php" class="btn btn-primary bluebtn">Cancel</a>
+    {{ form_end(form) }}
+
+{% endblock %}
+
+
+ 

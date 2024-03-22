@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div style="height: 10vh;"></div>
+    <div class="container my-5">
+        <h2>List of Cars</h2>
+        <a href="/Admin/Create" class="btn btn-primary" role="button">New Car</a>
+        <br>
+        <table class="table" style="margin-top: 3vh;" >
+        <thead>
+        <th>Product ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Product Description</th>
+        <th>Product image URL</th>
+        
+        </thead>
+        <tbody>
+            
+            
+        {% for car in cars %}  
+             <tr>
+                <td>{{ car.id }}</td>
+                <td>{{car.productName}}</td>
+                <td>{{car.price}}</td>
+                <td>{{car.productDescription}}</td>
+                <td><img src='{{ car.mainImage }}' style='height:20vh;'></td>
+                <td>
+                <a href='/Admin/edit/{{ car.id }}' class='btn  btn-primary p-2 m-2' style='width: 100%;' >Edit</a>
+                <a href='/Admin/delete/{{ car.id }}' class='btn btn-danger p-2 m-2' style='width: 100%;'>Delete</a>
+                </td>
+            </tr>
+
+            {% endfor %}    
+        </tbody>
+        </table>
+</div>     
+{% endblock %}

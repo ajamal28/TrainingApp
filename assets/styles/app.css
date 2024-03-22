@@ -1,3 +1,170 @@
 body {
-    background-color: skyblue;
+    background-color: white;
 }
+/* navbar */
+li a:hover {
+    background-color: #00ADB5;
+   
+    color: whitesmoke;
+  }
+
+.cont1 {
+    background-color: #00ADB5; 
+    color: whitesmoke;
+    
+}
+
+
+/** Landing page pic **/ 
+.container21 {
+    
+    background-image: url("https://images.unsplash.com/photo-1608341089966-92c09e62214f?q=80&w=2969&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-size: cover;
+    background-position: center;
+    margin-top: 10vh;
+  }
+  
+  /** Product page **/
+  
+  
+  .container10 {
+   position: relative;
+   
+   right: 30%;
+    background-color:#EEEEEE;
+    top: 25px;
+    margin: auto;
+    width :35%;
+    padding: 40px;
+    height: 45vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap : wrap;
+    text-align: center;
+    opacity: 99%;
+    text-shadow: 1px 1px 1px #00ADB5;
+    color: #00ADB5;
+  }
+  .cont {
+  
+   width: 50%;
+   height: 5vh;
+  
+   font-size: 1.3rem;
+   
+  
+  }
+  .cont > select {
+    width: 100%;
+    height: 60%;
+    font-size: 1rem;
+  }
+  .cont > input {
+    width: 100%;
+    height: 60%;
+  }
+  button:hover {
+    background-color: #00ADB5;
+    color: white;
+    border-color: #00ADB5;
+    box-shadow:2px #393E46;
+    }
+
+
+    .car-header {
+        width: 100%;
+        padding: 20px;
+        margin-bottom: 500;
+        font-size: 2.2rem;
+        text-align: center;
+       height: 8vh;
+
+      }
+      .he {
+        
+        padding-top:50px;
+        font-family: 'Play', sans-serif;
+      }
+      .c1 {
+        background-color: #EEEEEE;
+        padding: 0.1%;
+      }
+      
+      .container2 {
+        display: flex;
+       flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
+        gap: 10px;
+        
+        width: 90%;
+        height:auto;
+        margin-top: 23vh;
+        margin-bottom: 10vh;
+        
+      }
+
+      .bluebtn:hover {
+          background-color: #393E46;
+          border-color: #393E46;
+      }
+      
+      .box {
+        
+      
+        width: 32.8%;
+        height: 50vh;
+        filter: grayscale(100%);
+        overflow: hidden;
+        box-shadow: 0 4px 8px 0 grey, 0 6px 20px 0 grey;
+        
+       
+      }
+      .pic {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+     
+      
+      .box:hover {
+        
+        filter: grayscale(0%);
+       
+       
+      }
+      
+      
+      
+      
+      
+      @media (max-width: 1200px)  {
+      
+        .container2 {  flex-direction: column;
+          justify-content: center;
+        align-content: center;
+        height: auto;
+        }
+        .box {
+          width: 100%;
+          margin: 0 auto;
+          margin-bottom: 1vh;
+        }
+      .carmkt {
+        left: 40%;
+      }
+      }
+      
+      .column1 {
+        float: left;
+        width: 33.33%;
+        padding: 5px;
+      }
+      
+      /* Clear floats after image containers */
+      .row1::after {
+        content: "";
+        clear: both;
+        display: table;
+      }

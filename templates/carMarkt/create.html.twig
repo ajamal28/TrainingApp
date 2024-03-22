@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
+{% block body %}
+<div>
+    <h1 style="text-align: center; padding-top: 40px margin-top: 10vh;"><strong>Add a new car</strong></h1>
+</div>
+<div class="container" style="margin-top: 10vh; margin-bottom: 20vh;">
+    {{ form_start(form) }}
+
+        {{ form_widget(form) }}
+        <button type="submit" class="btn btn-success bluebtn" style="width:100%;">Submit</button> <br>
+        <a style="margin-top:1vh; width:100%;" href="/crud/adminform.php" class="btn btn-primary bluebtn">Cancel</a>
+    {{ form_end(form) }}
+</div>
+{% endblock %}

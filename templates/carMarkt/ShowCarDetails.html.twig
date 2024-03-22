@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    
+
+<div style="margin-top: 10vh; text-align: center;"><h1>Product details</h1></div>
+
+<div class="row" style="padding: 1%;" >
+          <div class="row img-b " style="width:50%; margin-left:8% ; height:100vh;  padding: 0;">
+            <div class="col-md-12 " style="overflow: hidden;">
+            <img src="{{ car.mainImage }}"  class="img-fluid col1"  alt="Responsive image" style=" width: 100%; object-fit: cover;">
+            </div>
+            <div class="col-md-6" style="overflow: hidden;">
+            <img src="{{ car.image2 }}"  class="img-fluid col1"  alt="Responsive image" style=" width: 100%; object-fit: cover;">
+            </div>
+            <div class="col-md-6" style="overflow: hidden;">
+            <img src="{{ car.image3 }}"  class="img-fluid col1"  alt="Responsive image" style=" width: 100%; object-fit: cover;">
+            </div>   
+         </div>
+         <div class="row img-bx" style="width: 35%;  ; margin-left: 30px; padding: 0;" >
+         <div class="col-12" style="border-bottom: 1px solid black">
+         <div class="container p-3" >
+         <h1 style="margin-top: 5rem;">{{ car.productName}}</h1>
+         <p><span class="btn btn-primary m-2 disabled">Brand New</span><span class="btn btn-primary ,m-2 disabled">Lease Available</span></p>
+         
+         
+         </div>
+        </div>
+         <div class="col-12" style="border-bottom: 1px solid black; padding-top:5rem;">
+         <div class="container" >
+         <h2>Product Description</h2>
+         <p>{{ car.productDescription }}</p>
+         </div>
+        </div>
+         <div class="col-12" style="padding-top:5rem;" >
+          <div class="row">
+          <div class="col-sm">
+          <p>price inc VAT</p>
+          <h3>£{{ car.price }}</h3>
+          </div>
+          <div class="col-sm ">
+          <P>Mileage: {{ car.mileage }}</P>
+         
+
+          </div>
+          </div>
+          <div class="row">
+          <div class="col-sm justify-content-center"  >
+          <button style="width: 100%;"class="btn btn-primary">Add to Basket</button>
+          </div>
+          <div class="col-sm ">
+          <button style="width: 100%;" class="btn btn-primary" href="/crud/user.php">Contact us</button>
+          </div>
+          </div>
+
+
+        </div>
+         </div>
+</div>
+{% endblock %}
