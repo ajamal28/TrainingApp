@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\CarsRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: CarsRepository::class)]
 class Cars
@@ -13,29 +14,38 @@ class Cars
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
-
+    
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Length(min: 3)]
     private ?string $productName = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank]
     private ?int $price = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
     private ?string $productDescription = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
     private ?string $mainImage = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
     private ?string $image2 = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
     private ?string $image3 = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank]
     private ?int $mileage = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
+    #[Assert\NotBlank]
     private ?\DateTimeInterface $year = null;
 
     public function getId(): ?int

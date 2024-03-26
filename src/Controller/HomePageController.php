@@ -121,4 +121,15 @@ class HomePageController extends AbstractController
     ]);
   }
 
+  //Delete Controller
+  #[Route('/Admin/delete/{id}', name: 'deletePage')]
+
+  public function delete($id): Response
+  {
+    $car = $this->CarRepository->find($id);
+    $this->em->remove($car);
+    $this->em->flush();
+
+    return $this->redirectToRoute('adminPage');
+  }
 }

@@ -17,41 +17,60 @@ class CarFormType extends AbstractType
         $builder
             ->add('productName',TextType::class,[
                 'attr'=> array(
-                   'placeholder'=>'Enter ProductName..' 
+                   'placeholder'=>'Enter ProductName..' ,
+                   'label' => false,
+                   'required' => false
                 )
             ] )
             ->add('price',IntegerType::class,[
                 'attr'=> array(
-                   'placeholder'=>'Enter Price..' 
+                    'label' => false,
+                   'placeholder'=>'Enter Price..' ,
+                   'required' => false
                 )
             ])
             ->add('productDescription',TextareaType::class, [
                 'attr'=> array(
-                   'placeholder'=>'Enter Description..' 
+                    'label' => false,
+                   'placeholder'=>'Enter Description..',
+                   'required' => false 
                 )
             ] )
             ->add('mainImage',TextType::class,[
                 'attr'=> array(
-                   'placeholder'=>'Enter Main Image URL..' 
+                    'label' => false,
+                   'placeholder'=>'Enter Main Image URL..' ,
+                   'required' => false
                 )
             ])
             ->add('image2',TextType::class,[
                 'attr'=> array(
-                   'placeholder'=>'Enter Image 2 URL..' 
+                    'label' => false,
+                   'placeholder'=>'Enter Image 2 URL..' ,
+                   'required' => false
                 )
             ])
             ->add('image3',TextType::class,[
                 'attr'=> array(
-                   'placeholder'=>'Enter Image 3 URL' 
+                    'label' => false,
+                   'placeholder'=>'Enter Image 3 URL' ,
+                   'required' => false
                 )
             ])
             ->add('mileage' ,IntegerType::class,[
                 'attr'=> array(
-                   'placeholder'=>'Enter Mileage..' 
+                    'label' => false,
+                   'placeholder'=>'Enter Mileage..' ,
+                   'required' => false
                 )
             ])
             ->add('year', null, [
                 'widget' => 'single_text',
+                'attr'=> array(
+                    'label' => false,
+                    'required' => false,
+                    'placeholder'=>'Enter Year..'
+                )
             ])
         ;
     }

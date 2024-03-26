@@ -33,18 +33,20 @@
                     <a class="nav-link" href="#">Contact Us</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/Admin">Admin Page</a>
+                    <a class="nav-link" href="/register">Register</a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
-                  </li>    
+                   <li class="nav-item">
+                    <a class="nav-link" href="/{{app.user ? 'logout' : 'login'}}">{{app.user ? 'Logout' : 'Login'}}</a>
+                  </li>
+                      
                 </ul>
               </div>
             </div>
           </nav>
         
         {% block body %}{% endblock %}
-    </body>
+    
+       
         <div class="container-fluid pt-5  cont1" style="margin-top:12vh;">
             <footer class="py-5">
               <div class="row">
