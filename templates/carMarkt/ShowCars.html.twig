@@ -1,20 +1,26 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div style="margin-top: 12vh; text-align: center;" class="cardsss" ><h1>Our Cars</h1></div>
-<div class="container" style="margin-top: 4vh;" >
+<div style=" text-align: center; background-color: #EEEEEE; " class="cardsss " >
+
+</div>
+<div style="background-color: #EEEEEE;" class="p-5">
+<div class="container" style="margin-top: 8vh;">
+<h1 style="text-align: center;">Our Cars</h1>
+<p style="text-align: center;">Lorem ipsum is placeholder text commonly used in the graphic</p>
+<p style="text-align: center;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 <div class ="row">
     
 {% for car in cars %}
-      <div class="card col-sm-3  " style="width: 26rem; margin: 8px; cursor: pointer;"   >
+      <div class="card col-sm-3  " style="width: 26rem; margin: 8px; cursor: pointer; box-shadow: 0 2px 4px 0 grey, 0 3px 10px 0 grey;"   >
     <div class="card-body" onclick= "location.href='/Cars/{{ car.id }}'">
           <img class="card-img-top " src= ' {{ car.mainImage }}' alt="Card image cap" style="width: 100%;">
           <h5 class="card-title">{{ car.productName }}</h5>
           <p class="card-text">{{ car.productDescription }}</p>
           <p class="card-text">£{{ car.price }}</p>
       </div>
-       <form action="classes/session.php" method="post">
-      <input type="hidden" name="product_id" value="{{ car.id }}">
+       <form action="{{ path('add_to_basket', {'id': car.id}) }}" method="post">
+      
       <button type="submit" class="add btn btn-primary bluebtn mb-4" style="width: 100%"  >Add to Basket</button>
       </form> 
       </div>
@@ -23,5 +29,7 @@
 {% endfor %}
 
 </div>
-</div>   
+</div> 
+</div> 
+<div style="height:10vh; background-color: #EEEEEE;"></div> 
 {% endblock %}

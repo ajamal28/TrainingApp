@@ -5,12 +5,12 @@ body {
 li a:hover {
     background-color: #00ADB5;
    
-    color: whitesmoke;
+    color: #393E46;
   }
 
 .cont1 {
     background-color: #00ADB5; 
-    color: whitesmoke;
+    color: #393E46;
     
 }
 
@@ -65,7 +65,7 @@ li a:hover {
   }
   button:hover {
     background-color: #00ADB5;
-    color: white;
+    color: #393E46;
     border-color: #00ADB5;
     box-shadow:2px #393E46;
     }
@@ -86,8 +86,10 @@ li a:hover {
         font-family: 'Play', sans-serif;
       }
       .c1 {
-        background-color: #EEEEEE;
+        background-color: #393E46;
         padding: 0.1%;
+        color:#EEEEEE;
+        margin-bottom: -13vh;
       }
       
       .container2 {
@@ -135,7 +137,14 @@ li a:hover {
        
       }
       
-      
+      .btn23 {
+      background-color: #00ADB5;
+      color:#EEEEEE;
+      }
+      .btn23:hover {
+        background-color: #393E46;
+        color:white;
+      }
       
       
       
@@ -221,3 +230,22 @@ li a:hover {
         background-color: #555;
       }
       
+      .cards-wrapper {
+        display: flex;
+        justify-content: center;
+      }
+      
+      
+      .carousel-inner {
+        padding: 1em;
+      }
+      .carousel-control-prev,
+      .carousel-control-next {
+        background-color: #e1e1e1;
+        width: 5vh;
+        height: 5vh;
+        border-radius: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    

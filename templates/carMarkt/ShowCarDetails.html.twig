@@ -46,7 +46,10 @@
           </div>
           <div class="row">
           <div class="col-sm justify-content-center"  >
-          <button style="width: 100%;"class="btn btn-primary">Add to Basket</button>
+          <form method="post" action="{{ path('add_to_basket', {'id': car.id}) }}">
+            <input type="number" name="quantity" class="quantity" style='width: 20%;' value="1">
+            <button type="submit" class="btn btn-primary p-2 m-2">Add to Basket</button>
+          </form>
           </div>
           <div class="col-sm ">
           <button style="width: 100%;" class="btn btn-primary" href="/crud/user.php">Contact us</button>
@@ -57,4 +60,5 @@
         </div>
          </div>
 </div>
+<div style="height:10vh"></div>
 {% endblock %}

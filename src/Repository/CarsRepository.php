@@ -45,4 +45,12 @@ class CarsRepository extends ServiceEntityRepository
     //            ->getOneOrNullResult()
     //        ;
     //    }
+    public function findCarsByIds(array $carIds): array
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.id IN (:ids)')
+            ->setParameter('ids', $carIds)
+            ->getQuery()
+            ->getResult();
+    }
 }

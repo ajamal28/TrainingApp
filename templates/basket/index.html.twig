@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BasketController!{% endblock %}
+
+{% block body %}
+<div style="margin-top: 10vh"></div>
+<div class="container p-3" style="margin-bottom: 10vh">
+<h3>Shopping Cart</h3>
+    <div class="table-responsive">
+    <table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>Name</th>
+            <th>Product Image</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in products %}
+            <tr>
+                <td>{{ product.id }}</td>
+                <td>{{ product.productName }}</td>
+                <td><img src="{{ product.mainImage }}" alt="" style="height: 100px;"></td>
+                <td>{{ product.price }}</td>
+                <td>
+                    <form method="post" action="{{ path('update_quantity', {'productId': product.id}) }}">
+                        <input type="number" name="quantity" value="{{ basket[product.id] }}" min="0">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </form>
+                </td>
+                <td>{{ product.price * basket[product.id] }}</td>
+                <td>
+                    <form method="post" action="{{ path('remove_from_basket', {'productId': product.id}) }}">
+                        <button type="submit" class="btn btn-danger">Remove</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="5"><strong>Total:</strong></td>
+            <td>{{ total }}</td>
+            <td></td>
+        </tr>
+    </tfoot>
+</table>
+
+    <form method="post" action="{{ path('checkout') }}">
+        <button type="submit" class="btn btn-danger">Checkout</button>
+    </form>
+    </div>
+</div>
+{% endblock %}
