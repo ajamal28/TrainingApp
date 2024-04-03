@@ -8,13 +8,13 @@
 <div class="row" style="padding: 1%;" >
           <div class="row img-b " style="width:50%; margin-left:8% ; height:100vh;  padding: 0;">
             <div class="col-md-12 " style="overflow: hidden;">
-            <img src="{{ car.mainImage }}"  class="img-fluid col1"  alt="Responsive image" style=" width: 100%; object-fit: cover;">
+            <img src="{{ car.mainImage }}"  class="img-fluid col1 hover-shadow " id="openModal1"   alt="Responsive image" style=" width: 100%; object-fit: cover;">
             </div>
             <div class="col-md-6" style="overflow: hidden;">
-            <img src="{{ car.image2 }}"  class="img-fluid col1"  alt="Responsive image" style=" width: 100%; object-fit: cover;">
+            <img src="{{ car.image2 }}"  class="img-fluid col1 hover-shadow " id="openModal2"   alt="Responsive image" style=" width: 100%; object-fit: cover;">
             </div>
             <div class="col-md-6" style="overflow: hidden;">
-            <img src="{{ car.image3 }}"  class="img-fluid col1"  alt="Responsive image" style=" width: 100%; object-fit: cover;">
+            <img src="{{ car.image3 }}"  class="img-fluid col1 hover-shadow " id="openModal3"  alt="Responsive image" style=" width: 100%; object-fit: cover;">
             </div>   
          </div>
          <div class="row img-bx" style="width: 35%;  ; margin-left: 30px; padding: 0;" >
@@ -60,5 +60,39 @@
         </div>
          </div>
 </div>
+<div id="myModal" class="modal">
+  <span class="close cursor " id="closeModal" >&times;</span>
+  <div class="modal-content">
+
+    <div class="mySlides">
+      <div class="numbertext">1 / 4</div>
+      <img src="{{ car.mainImage }}" class="imgdetail">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">2 / 4</div>
+      <img src="{{ car.image2 }}" class="imgdetail">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">3 / 4</div>
+      <img src="{{ car.image3 }}" class="imgdetail" >
+    </div>
+
+    <!-- Next/previous controls -->
+    <a class="prev" id="prev1" >&#10094;</a>
+    <a class="next" id="next1" >&#10095;</a>
+
+    
+
+ 
+
+    
+
+    
+  </div>
+</div>
 <div style="height:20vh"></div>
+
+
 {% endblock %}
