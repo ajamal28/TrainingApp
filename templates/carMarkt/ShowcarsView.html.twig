@@ -1,0 +1,22 @@
+
+<div id="cars-list" >
+ <div class ="row shwcar1" >
+{% for car in cars %}
+
+      <div class="card col-sm-3  " style="width: 26rem; margin: 8px; cursor: pointer; box-shadow: 0 2px 4px 0 grey, 0 3px 10px 0 grey;"   >
+    <div class="card-body" onclick= "location.href='/Cars/{{ car.id }}'">
+          <img class="card-img-top " src= ' {{ car.mainImage }}' alt="Card image cap" style="width: 100%;">
+          <h5 class="card-title">{{ car.productName }}</h5>
+          <p class="card-text">{{ car.productDescription }}</p>
+          <p class="card-text">£{{ car.price }}</p>
+      </div>
+       <form action="{{ path('add_to_basket', {'id': car.id}) }}" method="post">
+      
+      <button type="submit" class="add btn btn-primary bluebtn mb-4" style="width: 100%"  >Add to Basket</button>
+      </form> 
+      </div>
+  
+ 
+{% endfor %}
+</div>   
+</div>

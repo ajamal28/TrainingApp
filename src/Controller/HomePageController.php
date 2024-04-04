@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 
 
@@ -33,16 +34,7 @@ class HomePageController extends AbstractController
     }
 
 
-    // Render Product List Page
-    #[Route('/Cars', methods:['GET'],  name: 'cars', )]
-    public function show(): Response
-    {
-        $cars = $this->CarRepository->findAll();
-        
-        return $this->render('carMarkt/ShowCars.html.twig', [
-          'cars'=>$cars
-        ]); 
-    }
+    
 
 
     //Display Product Page

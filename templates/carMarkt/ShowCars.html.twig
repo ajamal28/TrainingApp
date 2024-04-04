@@ -9,27 +9,63 @@
 <h1 style="text-align: center;">Our Cars</h1>
 <p style="text-align: center;">Lorem ipsum is placeholder text commonly used in the graphic</p>
 <p style="text-align: center;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-<div class ="row">
-    
-{% for car in cars %}
-      <div class="card col-sm-3  " style="width: 26rem; margin: 8px; cursor: pointer; box-shadow: 0 2px 4px 0 grey, 0 3px 10px 0 grey;"   >
-    <div class="card-body" onclick= "location.href='/Cars/{{ car.id }}'">
-          <img class="card-img-top " src= ' {{ car.mainImage }}' alt="Card image cap" style="width: 100%;">
-          <h5 class="card-title">{{ car.productName }}</h5>
-          <p class="card-text">{{ car.productDescription }}</p>
-          <p class="card-text">£{{ car.price }}</p>
-      </div>
-       <form action="{{ path('add_to_basket', {'id': car.id}) }}" method="post">
-      
-      <button type="submit" class="add btn btn-primary bluebtn mb-4" style="width: 100%"  >Add to Basket</button>
-      </form> 
-      </div>
-  
-    
-{% endfor %}
+<div class="row mb-3">
+            <div class="col-md-6">
+                <select class="form-select" aria-label="Default select example" id="price-filter" >
+                    <option value="" selected>Select filter</option>
+                    <option value="high_to_low" >High to Low price</option>
+                    <option value="low_to_high">Low to high price</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <select class="form-select" aria-label="Default select example" id="category-filter">
+                    <option value="" selected>Select category</option>
+                    <option value="all">All categories</option>
+                    <option value="planes">Planes</option>
+                    <option value="cars">Cars</option>
+                    <option value="bikes">Bikes</option>
+                </select>
+            </div>
+        </div>
 
-</div>
-</div> 
+
+ 
+{% include 'carMarkt/ShowcarsView.html.twig'  %}
+
+
+
 </div> 
 <div style="height:10vh; background-color: #EEEEEE;"></div> 
+<script>
+document.getElementById('price-filter').addEventListener('change', function(){
+  var filterValue = this.value;
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', '/Cars?filter=' + filterValue, true);
+  xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+  xhr.onload = function() {
+      if (xhr.status >= 200 && xhr.status < 300) {
+          var carsList = document.getElementById('cars-list');
+          carsList.innerHTML = JSON.parse(xhr.response).template; 
+      }
+  };
+  xhr.send();
+});
+
+// category filter 
+document.getElementById('category-filter').addEventListener('change', function(){
+  var filterValue = this.value;
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', '/Cars/' + filterValue, true);
+  xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+  xhr.onload = function() {
+      if (xhr.status >= 200 && xhr.status < 300) {
+          var carsList = document.getElementById('cars-list');
+          carsList.innerHTML = JSON.parse(xhr.response).template; 
+      }
+  };
+  xhr.send();
+});
+
+
+</script>
 {% endblock %}

@@ -368,3 +368,6 @@ li a:hover {
         height:70vh;
         object-fit: cover;
       }
+      .shwcar1 {
+        border-top: 4px solid rgba(0, 0, 0, 0.2);
+      }

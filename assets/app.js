@@ -7,6 +7,10 @@ import './bootstrap.js';
  */
 import './styles/app.css';
 
+
+  
+
+//Modal Gallery
 document.getElementById("openModal1").addEventListener("click", function() {
   openModal(1);
 });
@@ -60,8 +64,6 @@ function showSlides(n) {
   slides[slideIndex - 1].style.display = "block";
 }
 
-  
+//Filter by Ajax
 
-
   
- 
