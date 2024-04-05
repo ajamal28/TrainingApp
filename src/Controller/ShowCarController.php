@@ -34,22 +34,43 @@ class ShowCarController extends AbstractController
       }
 
       // Render Product List Page
-    #[Route('/Cars/{category?}',   name: 'cars', )]
-    public function show(Request $request, $category = null): Response
+    #[Route('/Cars',   name: 'cars', )]
+    public function show(Request $request): Response
     {
       
       if($request->isXmlHttpRequest()){
-        $filter = $request->query->get('filter');
+        $priceFilter = $request->query->get('priceFilter');
+        $categoryFilter = $request->query->get('categoryFilter');
       
-      if ($filter === 'high_to_low') {
-        $value = ['price' => 'DESC'];
-      } elseif ($filter === 'low_to_high') {
-        $value = ['price' => 'ASC'];
-      }else {
-        $value = []; 
+      if ($priceFilter === 'high_to_low') {
+        $sort = ['price' => 'DESC'];
+      } elseif ($priceFilter === 'low_to_high') {
+        $sort = ['price' => 'ASC'];
       }
       
-      $cars = $this->CarRepository->findBy([], $value);
+      
+        switch ($categoryFilter) {
+          case 'all':
+            $cars = array_merge(
+              $this->planesRepository->findAll(),
+              $this->CarRepository->findAll(),
+              $this->bikesRepository->findAll()
+          );
+          break;  
+          case 'planes':
+            $cars = $this->planesRepository->findBy([], $sort);
+            break;
+          case 'cars':
+            $cars = $this->CarRepository->findBy([], $sort);
+            break;
+          case 'bikes':
+            $cars = $this->bikesRepository->findBy([], $sort);
+            break;
+          default:
+            $cars = $this->CarRepository->findBy([], $sort);
+        }
+      
+      
       
       $template = $this->render('carMarkt/ShowcarsView.html.twig', [
         'cars' => $cars

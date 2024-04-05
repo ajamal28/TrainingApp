@@ -15,12 +15,12 @@ class Planes
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $name = null;
+    private ?string $productName = null;
 
     #[ORM\Column]
-    private ?float $price = null;
+    private ?int $price = null;
 
-    #[ORM\Column(type: Types::TEXT)]
+    #[ORM\Column(length: 255)]
     private ?string $productDescription = null;
 
     #[ORM\Column(length: 255)]
@@ -40,24 +40,24 @@ class Planes
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getProductName(): ?string
     {
-        return $this->name;
+        return $this->productName;
     }
 
-    public function setName(string $name): static
+    public function setProductName(string $productName): static
     {
-        $this->name = $name;
+        $this->productName = $productName;
 
         return $this;
     }
 
-    public function getPrice(): ?float
+    public function getPrice(): ?int
     {
         return $this->price;
     }
 
-    public function setPrice(float $price): static
+    public function setPrice(int $price): static
     {
         $this->price = $price;
 

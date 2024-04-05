@@ -48,6 +48,9 @@ class Cars
     #[Assert\NotBlank]
     private ?\DateTimeInterface $year = null;
 
+    #[ORM\OneToOne(mappedBy: 'car', cascade: ['persist', 'remove'])]
+    private ?Vehicle $vehichle = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -145,6 +148,23 @@ class Cars
     public function setYear(\DateTimeInterface $year): static
     {
         $this->year = $year;
+
+        return $this;
+    }
+
+    public function getVehichle(): ?Vehicle
+    {
+        return $this->vehichle;
+    }
+
+    public function setVehichle(Vehicle $vehichle): static
+    {
+        // set the owning side of the relation if necessary
+        if ($vehichle->getCar() !== $this) {
+            $vehichle->setCar($this);
+        }
+
+        $this->vehichle = $vehichle;
 
         return $this;
     }
