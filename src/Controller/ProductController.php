@@ -18,7 +18,7 @@ class ProductController extends AbstractController
         $session = $request->getSession();
         $basket = $session->get('basket', []);
 
-         // Add or update quantity in the basket
+         // Add or update quantity in the basket           
          //Array will look like this [$id(key) => quantity]
          if (isset($basket[$id])) {
             $basket[$id] += $quantity;

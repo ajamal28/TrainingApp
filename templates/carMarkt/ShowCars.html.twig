@@ -31,43 +31,6 @@
 
  
 {% include 'carMarkt/ShowcarsView.html.twig'  %}
-
-
-
 </div> 
 <div style="height:10vh; background-color: #EEEEEE;"></div> 
-<script>
- 
-   
-
-
-
-document.getElementById('price-filter').addEventListener('change', function(){
-  var filterValue = this.value;
-  var categoryValue = document.getElementById('category-filter').value; // Get the selected category value
-  sendAjaxRequest(filterValue, categoryValue);
-});
-
-document.getElementById('category-filter').addEventListener('change', function(){
-  var filterValue = document.getElementById('price-filter').value; // Get the selected price filter value
-  var categoryValue = this.value;
-  sendAjaxRequest(filterValue, categoryValue);
-});
-
-function sendAjaxRequest(priceFilter, categoryFilter) {
-  var xhr = new XMLHttpRequest();
-  xhr.open('GET', '/Cars/?priceFilter=' + priceFilter + '&categoryFilter=' + categoryFilter, true); // Pass both filter values as parameters
-  xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-  xhr.onload = function() {
-      if (xhr.status >= 200 && xhr.status < 300) {
-          var carsList = document.getElementById('cars-list');
-          carsList.innerHTML = JSON.parse(xhr.response).template; 
-      }
-  };
-  xhr.send();
-}
-
-
-
-</script>
 {% endblock %}

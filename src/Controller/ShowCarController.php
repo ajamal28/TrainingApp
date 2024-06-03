@@ -41,6 +41,7 @@ class ShowCarController extends AbstractController
       if($request->isXmlHttpRequest()){
         $priceFilter = $request->query->get('priceFilter');
         $categoryFilter = $request->query->get('categoryFilter');
+        $sort = [];
       
       if ($priceFilter === 'high_to_low') {
         $sort = ['price' => 'DESC'];
@@ -51,11 +52,11 @@ class ShowCarController extends AbstractController
       
         switch ($categoryFilter) {
           case 'all':
-            $cars = array_merge(
-              $this->planesRepository->findAll(),
-              $this->CarRepository->findAll(),
-              $this->bikesRepository->findAll()
-          );
+                $planes = $this->planesRepository->findBy([], $sort);
+                $cars = $this->CarRepository->findBy([], $sort);
+                $bikes = $this->bikesRepository->findBy([], $sort);
+
+                $cars = array_merge($planes, $cars, $bikes);
           break;  
           case 'planes':
             $cars = $this->planesRepository->findBy([], $sort);
@@ -67,7 +68,12 @@ class ShowCarController extends AbstractController
             $cars = $this->bikesRepository->findBy([], $sort);
             break;
           default:
-            $cars = $this->CarRepository->findBy([], $sort);
+                $planes = $this->planesRepository->findBy([], $sort);
+                $cars = $this->CarRepository->findBy([], $sort);
+                $bikes = $this->bikesRepository->findBy([], $sort);
+
+                
+                $cars = array_merge($planes, $cars, $bikes);
         }
       
       

@@ -45,4 +45,16 @@ class VehicleRepository extends ServiceEntityRepository
     //            ->getOneOrNullResult()
     //        ;
     //    }
+    public function findAllVehiclesWithPrices(): array
+    {
+        $qb = $this->createQueryBuilder('v')
+            ->leftJoin('v.car', 'c')
+            ->addSelect('c.price AS carPrice')
+            ->leftJoin('v.plane', 'p')
+            ->addSelect('p.price AS planePrice')
+            ->leftJoin('v.bike', 'b')
+            ->addSelect('b.price AS bikePrice');
+
+        return $qb->getQuery()->getResult();
+    }
 }
