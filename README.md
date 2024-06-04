@@ -1,3 +1,3 @@
 ## GIT training
 
-25 b
+25 bed
